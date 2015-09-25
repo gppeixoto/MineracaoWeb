@@ -1,0 +1,21 @@
+<h1>Documents Search</h1>
+
+<%= form_for search_path, method: :get do |f| %>
+  <p>
+    <%= f.label "Search for" %>
+    <%= text_field_tag :q, params[:q] %>
+    <%= submit_tag "Go", name: nil %>
+  </p>
+<% end %>
+
+<% if @documents %>
+  <ul>
+    <% @documents.each do |document| %>
+      <li>
+        <h3>
+          <%= link_to document.name, controller: "documents", action: "show", id: document._id%>
+        </h3>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
