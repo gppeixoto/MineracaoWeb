@@ -5,7 +5,7 @@
 
 <p>
   <strong>Text:</strong>
-  <%= @document.text %>
+  <%= simple_format(@document.text) %>
 </p>
 
 <%= link_to '<- Back', search_path %>
