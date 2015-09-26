@@ -16,8 +16,16 @@ class Document < ActiveRecord::Base
       {
         query: {
           multi_match: {
-          query: query,
-          fields: ['title^10', 'text']
+            query: query,
+            fields: ['title^10', 'text']
+          }
+        },
+        highlight: {
+          pre_tags: ['<em>'],
+          post_tags: ['</em>'],
+          fields: {
+            title: {},
+            text: {}
           }
         }
       }
