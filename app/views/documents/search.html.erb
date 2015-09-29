@@ -12,6 +12,7 @@
   <ul>
     <% @documents.each do |document| %>
       <li>
+        <%="<doc>"+document.name+"</doc>"=%>
         <h3>
         <%= link_to document.try(:highlight).try(:name) ? document.highlight.name[0].html_safe : document.name,
           controller: "documents",
